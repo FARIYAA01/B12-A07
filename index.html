@@ -1,11 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS — Ticket System</title>
+
+    <!-- Tailwind + DaisyUI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
+
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+
+    <!-- Custom -->
+    <style>
+        body {
+            background-color: #f9fafb;
+        }
+    </style>
 </head>
-<body>
-    
+
+<body class="text-black">
+
+    <!-- Navbar -->
+    <div class="navbar bg-base-100 shadow bg-white">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-xl">CS — Ticket System</a>
+        </div>
+
+        <div class="flex-none">
+            <!-- Mobile menu button -->
+            <div class="dropdown dropdown-end md:hidden">
+                <label tabindex="0" class="btn btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52">
+                    <li><a>Home</a></li>
+                    <li><a>FAQ</a></li>
+                    <li><a>Changelog</a></li>
+                    <li><a>Blog</a></li>
+                    <li><a>Download</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Desktop menu -->
+            <ul class="menu menu-horizontal px-1 hidden md:flex">
+                <li><a>Home</a></li>
+                <li><a>FAQ</a></li>
+                <li><a>Changelog</a></li>
+                <li><a>Blog</a></li>
+                <li><a>Download</a></li>
+                <li><a>Contact</a></li>
+            </ul>
+
+            <!-- New Ticket Button -->
+            <button class="ml-2 text-white font-semibold px-4 py-2 rounded"
+                style="background: linear-gradient(125.07deg, rgba(99, 46, 227, 1), rgba(159, 98, 242, 1) 100%); border-radius: 4px;">
+                + New Ticket
+            </button>
+        </div>
+    </div>
+
+    <!-- Banner -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 sm:p-6 md:p-8">
+        <!-- In-Progress Card -->
+        <div class="card bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-xl w-full h-[250px]">
+            <div class="card-body text-center">
+                <h2 class="card-title justify-center text-2xl">In-Progress</h2>
+                <p id="inProgressCount" class="text-4xl font-bold">0</p>
+            </div>
+        </div>
+
+        <!-- Resolved Card -->
+        <div class="card bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-xl w-full h-[250px]">
+            <div class="card-body text-center">
+                <h2 class="card-title justify-center text-2xl">Resolved</h2>
+                <p id="resolvedCount" class="text-4xl font-bold">0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Section -->
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+        <!-- Left Column: Tickets -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-700">Customer Tickets</h3>
+            <div id="taskPlaceholder" class="text-gray-500 text-sm italic mb-3">
+                Select a ticket to add to Task Status
+            </div>
+            <div id="ticketList"></div>
+        </div>
+
+        <!-- Right Column: Task Status + Resolved -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-700">Task Status</h3>
+            <div id="taskPlaceholder" class="text-gray-500 text-sm  mb-3">
+                Select a ticket to add to Task Status
+            </div>
+            <div id="taskList"></div>
+
+            <h3 class="text-lg font-semibold mb-4 text-gray-700">Resolved Tickets</h3>
+            <div id="resolvedPlaceholder" class="text-gray-500 text-sm  mb-3">
+                No resolved tasks yet.
+            </div>
+            <div id="resolvedList"></div>
+    </main>
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>
