@@ -60,19 +60,15 @@ function renderTickets() {
       </div>
 
       <div class="flex justify-between text-sm mt-3 items-center">
-  <!-- Left side: ID + Priority -->
-  <div class="flex items-center space-x-2">
-    <span class="text-gray-400 font-semibold">${ticket.id}</span>
-    <span class="${priorityClass} font-semibold">${ticket.priority}</span>
-  </div>
-
-  <!-- Name + Date -->
   <div class="flex items-center space-x-3">
+    <!-- show ticket ID before priority -->
+    <span class="text-gray-500 font-semibold">${ticket.id}</span>
+    <span class="${priorityClass} font-semibold">${ticket.priority}</span>
     <span class="text-gray-500">By ${ticket.customer}</span>
-    <span class="text-gray-500 flex items-center">${calendarSVG()}${ticket.createdAt}</span>
   </div>
+  <!-- date stays on the right with calendar icon -->
+  <span class="text-gray-500 flex items-center">${calendarSVG()}${ticket.createdAt}</span>
 </div>
-
 
     `;
 
@@ -198,10 +194,10 @@ function showToast(msg, type = "info") {
   Toastify({
     text: msg,
     duration: 2500,
-    gravity: "top",
+    gravity: "top", // top-right as you wanted
     position: "right",
     backgroundColor: colors[type] || colors.info,
-    stopOnFocus: true
+    stopOnFocus: true,
   }).showToast();
 }
 
@@ -209,4 +205,3 @@ renderTickets();
 renderTasks();
 renderResolved();
 updateCounts();
-  
