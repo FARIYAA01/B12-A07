@@ -161,6 +161,7 @@ function completeTask(ticket) {
 // =====  Resolved Tickets =====
 function renderResolved() {
   resolvedList.innerHTML = "";
+  
   resolved.forEach((t) => {
     const card = document.createElement("div");
     card.className = "bg-white p-4 rounded-lg shadow-sm mb-2 flex justify-between";
