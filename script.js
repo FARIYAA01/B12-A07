@@ -110,13 +110,14 @@ function renderTasks() {
           <span class="flex items-center">${calendarSVG()}${ticket.createdAt}</span>
         </div>
       </div>
-      <div class="flex flex-col items-end">
-        <span class="text-xs mb-2 px-2 py-1 rounded bg-yellow-100 text-yellow-700">In Progress</span>
-        <div>
-          <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 mr-1 text-sm">Complete</button>
-          <button class="bg-gray-200 text-gray-700 px-3 py-1 rounded hover:bg-gray-300 text-sm">Remove</button>
-        </div>
-      </div>
+     <div class="flex flex-col items-end">
+  <span class="text-xs mb-2 px-2 py-1 rounded bg-yellow-100 text-yellow-700">In Progress</span>
+  <div class="flex gap-2">
+    <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm">Complete</button>
+    <button class="bg-gray-200 text-gray-700 px-3 py-1 rounded hover:bg-gray-300 text-sm">Remove</button>
+  </div>
+</div>
+
     `;
 
     // Complete button
