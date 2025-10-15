@@ -42,14 +42,14 @@ function renderTickets() {
     el.className = "bg-white shadow-sm p-4 rounded-lg mb-3 hover:shadow-md transition cursor-pointer";
 
     let statusColor;
-    if (ticket.status === "Open") statusColor = "bg-green-100 text-green-700";
-    else if (ticket.status === "In-Progress") statusColor = "bg-yellow-100 text-yellow-700";
+    if (ticket.status === "Open") statusColor = "bg-green-300 text-green-800";
+    else if (ticket.status === "In-Progress") statusColor = "bg-yellow-200 text-yellow-700";
     else statusColor = "bg-gray-100 text-gray-700";
 
     let priorityColor;
-    if (ticket.priority === "HIGH PRIORITY") priorityColor = "text-red-600";
-    else if (ticket.priority === "MEDIUM PRIORITY") priorityColor = "text-yellow-600";
-    else priorityColor = "text-green-600";
+    if (ticket.priority === "HIGH PRIORITY") priorityColor = "text-red-500";
+    else if (ticket.priority === "MEDIUM PRIORITY") priorityColor = "text-yellow-300";
+    else priorityColor = "text-green-400";
 
     el.innerHTML = `
       <div class="flex justify-between items-start">
@@ -74,7 +74,7 @@ function renderTickets() {
   });
 }
 
-// ===== Add Ticket to In Progress =====
+// =====  Ticket to In Progress =====
 function addToTask(ticket) {
   if (inProgress.find((t) => t.id === ticket.id)) {
     showToast("Ticket already in progress!", "warning");
@@ -93,7 +93,7 @@ function addToTask(ticket) {
   updateCounts();
 }
 
-// ===== Render In Progress Tasks =====
+// ===== Progress Tasks =====
 function renderTasks() {
   taskList.innerHTML = "";
 
@@ -141,7 +141,7 @@ function renderTasks() {
   });
 }
 
-// ===== Complete Task (Move to Resolved) =====
+// ===== Complete Task =====
 function completeTask(ticket) {
   ticket.status = "Resolved";
   resolved.push(ticket);
@@ -157,7 +157,7 @@ function completeTask(ticket) {
   updateCounts();
 }
 
-// ===== Render Resolved Tickets =====
+// =====  Resolved Tickets =====
 function renderResolved() {
   resolvedList.innerHTML = "";
   resolved.forEach((t) => {
@@ -192,7 +192,7 @@ function updateCounts() {
   resolvedCount.textContent = resolved.length;
 }
 
-// ===== Toast Notifications =====
+// ===== Notifications =====
 function showToast(msg, type = "info") {
   let bg = "#6366f1"; // info default
   if (type === "success") bg = "#22c55e";
